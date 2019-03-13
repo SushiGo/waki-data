@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataTherapy extends Model
 {
     protected $fillable = [
-        'code', 'registration_date', 'name', 'address', 'phone', 'province', 'district', 'branch_id', 'cso_id', 'type_cust_id', 'active',
+        'code', 'registration_date', 'name', 'address', 'phone', 'branch_id', 'type_cust_id', 'active',
     ];
 
     public function branch()

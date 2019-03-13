@@ -55,11 +55,11 @@
                 <a class="nav-link" role="tab" data-toggle="tab" href="#tab-3" aria-selected="true"onclick="ShowList('3')">Data Therapy</a>
             </li>
             @endif
-            @if(Gate::check('find-mpc') || Gate::check('browse-mpc') || Gate::check('add-mpc'))
+            <!-- @if(Gate::check('find-mpc') || Gate::check('browse-mpc') || Gate::check('add-mpc'))
             <li class="nav-item">
                 <a class="nav-link" role="tab" data-toggle="tab" href="#tab-4" aria-selected="true"onclick="ShowList('4')">MPC</a>
             </li>
-            @endif
+            @endif -->
         </ul>
         <div class="tab-pane active" role="tabpanel" id="tab-1">
             @if(Gate::check('find-data-undangan'))
@@ -153,7 +153,7 @@
                             <optgroup label="Branch">
                                 @can('all-branch-data-undangan')
                                     @can('all-country-data-undangan')
-                                        <option value="" disabled selected>SELECT COUNTRY FIRST</option>
+                                        <option value="" disabled selected>SELECT COUNTRY FIRSTz</option>
                                     @endcan
                                     @cannot('all-country-data-undangan')
                                         <option value="" selected disabled>SELECT YOUR OPTION</option>
@@ -174,7 +174,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="txtcso-dataundangan" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -196,10 +196,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="txtprovince-dataundangan" class="text-uppercase form-control" name="province" required>
                             <optgroup label="Province">
@@ -209,8 +209,8 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
-                    <div class="form-group frm-group-select select-right">
+                    </div> -->
+                    <!-- <div class="form-group frm-group-select select-right">
                         <span>DISTRICT</span>
                         <select id="txtdistrict-dataundangan" class="form-control text-uppercase" name="district"required>
                             <optgroup label="District">
@@ -220,7 +220,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -332,7 +332,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="txtcso-dataoutsite" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -354,10 +354,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="txtprovince-dataoutsite" class="text-uppercase form-control" name="province">
                             <optgroup label="Province">
@@ -378,7 +378,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -493,7 +493,7 @@
 
 
                 <!-- CSO -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <span>CSO</span>
                     <select id="txtcso-datatherapy" class="text-uppercase form-control" name="cso" required>
                         <optgroup label="Cso">
@@ -515,10 +515,10 @@
                     <span class="invalid-feedback">
                         <strong></strong>
                     </span>
-                </div>
+                </div> -->
 
                 <!-- Khusus untuk Indo untuk sementara -->
-                <div class="form-group frm-group-select">
+                <!-- <div class="form-group frm-group-select">
                     <span>PROVINCE</span>
                     <select id="txtprovince-datatherapy" class="text-uppercase form-control" name="province" required>
                         <optgroup label="Province">
@@ -539,7 +539,7 @@
                     <span class="invalid-feedback">
                         <strong></strong>
                     </span>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <span>PHONE</span>
@@ -674,7 +674,7 @@
 
 
                 <!-- CSO -->
-                <div class="form-group">
+                <!-- <div class="form-group">
                     <span>CSO</span>
                     <select id="txtcso-mpc" class="text-uppercase form-control" name="cso" required>
                         <optgroup label="Cso">
@@ -696,10 +696,10 @@
                     <span class="invalid-feedback">
                         <strong></strong>
                     </span>
-                </div>
+                </div> -->
 
                 <!-- Khusus untuk Indo untuk sementara -->
-                <div class="form-group frm-group-select">
+                <!-- <div class="form-group frm-group-select">
                     <span>PROVINCE</span>
                     <select id="txtprovince-mpc" class="text-uppercase form-control" name="province" required>
                         <optgroup label="Province">
@@ -720,7 +720,7 @@
                     <span class="invalid-feedback">
                         <strong></strong>
                     </span>
-                </div>
+                </div> -->
 
                 <div class="form-group">
                     <span>PHONE</span>
@@ -914,6 +914,7 @@
                 @php
                 $i = 0
                 @endphp
+
                 @foreach($dataTherapies as $dataTherapy)
                 <tr>
                     <td>{{$dataTherapy->registration_date}}</td>
@@ -1260,6 +1261,8 @@
 </div>
 @endif
 
+<!-- asdzxc -->
+
 <!--===========================================================-->
 
 
@@ -1353,7 +1356,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="edit-txtcso-dataoutsite" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -1374,10 +1377,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="edit-txtprovince-dataoutsite" class="text-uppercase form-control" name="province" required>
                             <optgroup label="Province">
@@ -1398,7 +1401,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -1520,7 +1523,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="edit-txtcso-dataundangan" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -1540,10 +1543,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="edit-txtprovince-dataundangan" class="text-uppercase form-control" name="province" required>
                             <optgroup label="Province">
@@ -1564,7 +1567,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -1589,7 +1592,7 @@
                     <th>REG DATE</th>
                     <th>TYPE</th>
                     <th>BANK</th>
-                    <th>CSO</th>
+                    <!-- <th>CSO</th> -->
                     <th>BRANCH</th>
                     <th>AREA</th>
                     <th colspan="2">EDIT / DELETE</th>
@@ -1611,11 +1614,11 @@
                         <td>{{DataController::Decr($dataOutsite->phone)}}</td>
                     @endif
                     <td>{{$dataOutsite->type_cust['name']}}</td>
-                    <td style="display: none;">{{$dataOutsite->province}}</td>
-                    <td style="display: none;">{{$dataOutsite->district}}</td>
+                    <!-- <td style="display: none;">{{$dataOutsite->province}}</td> -->
+                    <!-- <td style="display: none;">{{$dataOutsite->district}}</td> -->
                     <td style="display: none;">{{$dataOutsite->branch['country']}}</td>
                     <td style="display: none;">{{$dataOutsite->branch['id']}}</td>
-                    <td style="display: none;">{{$dataOutsite->cso['id']}}</td>
+                    <!-- <td style="display: none;">{{$dataOutsite->cso['id']}}</td> -->
                     <td style="display: none;">{{$dataOutsite->type_cust['id']}}</td>
                     <td><button class="btn btn-primary btn-edithapus-card btn-editDataUndangan" type="button" style="padding:0px 5px;" name="{{$i}}" value="{{$dataOutsite->id}}">
                     <i class="material-icons">mode_edit</i>
@@ -1749,7 +1752,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="edit-txtcso-datatherapy" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -1770,10 +1773,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="edit-txtprovince-datatherapy" class="text-uppercase form-control" name="province" required>
                             <optgroup label="Province">
@@ -1794,7 +1797,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -1903,12 +1906,12 @@
                                     @can('all-country-mpc')
                                         <option value="" disabled selected>SELECT COUNTRY FIRST</option>
                                     @endcan
-                                    @cannot('all-country-mpc')
+                                    <!-- @cannot('all-country-mpc') -->
                                         <option value="" selected disabled>SELECT YOUR OPTION</option>
                                         @foreach ($branches as $branch)
                                             <option value="{{$branch->id}}" {{($branch->id == Auth::user()->branch_id ? "selected" : "")}}>{{$branch->code}} - {{$branch->name}}</option>
                                         @endforeach
-                                    @endcan
+                                    <!-- @endcan -->
                                 @endcan
                                 @cannot('all-branch-mpc')
                                     <option value="{{Auth::user()->branch_id}}">{{Auth::user()->branch['name']}}</option>
@@ -1922,7 +1925,7 @@
 
 
                     <!-- CSO -->
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <span>CSO</span>
                         <select id="edit-txtcso-mpc" class="text-uppercase form-control" name="cso" required>
                             <optgroup label="Cso">
@@ -1944,10 +1947,10 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <!-- Khusus untuk Indo untuk sementara -->
-                    <div class="form-group frm-group-select">
+                    <!-- <div class="form-group frm-group-select">
                         <span>PROVINCE</span>
                         <select id="edit-txtprovince-mpc" class="text-uppercase form-control" name="province" required>
                             <optgroup label="Province">
@@ -1968,7 +1971,7 @@
                         <span class="invalid-feedback">
                             <strong></strong>
                         </span>
-                    </div>
+                    </div> -->
 
                     <div class="form-group">
                         <span>PHONE</span>
@@ -2109,7 +2112,9 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-light" type="button" data-dismiss="modal">Close</button>
+                <button class="btn btn-light" type="button" data-dismiss="
+
+                ">Close</button>
             </div>
         </div>
     </div>
@@ -2122,7 +2127,50 @@
 
 <!-- SCRIPT SECTION -->
 @section('script')
-
+<script type="text/javascript">
+    $(document).ready(function () {
+        
+    });
+            var countryVal = "INDONESIA";
+            var branches = "<option value=\"\" selected disabled>SELECT YOUR OPTION</option>";
+            $.ajax({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                type: 'post',
+                url: "{{route('select-country')}}",
+                data: {
+                    'country': countryVal
+                },
+                success: function(data){
+                    if(data.length > 0)
+                    {
+                        data.forEach(function(key, value){
+                            branches += '<option value="'+data[value].id+'">'+data[value].code+' - '+data[value].name+'</option>';
+                        });
+                        $("#txtbranch-dataundangan").html("");
+                        $("#txtbranch-dataundangan").append(branches);
+                        $("#txtbranch-dataoutsite").html("");
+                        $("#txtbranch-dataoutsite").append(branches);
+                        $("#txtbranch-datatherapy").html("");
+                        $("#txtbranch-datatherapy").append(branches);
+                        $("#txtbranch-mpc").html("");
+                        $("#txtbranch-mpc").append(branches);
+                    }
+                    else
+                    {
+                        $("#txtbranch-dataundangan").html("");
+                        $("#txtbranch-dataundangan").append("<option value=\"\" selected>BRANCH NOT FOUND</option>");
+                        $("#txtbranch-dataoutsite").html("");
+                        $("#txtbranch-dataoutsite").append("<option value=\"\" selected>BRANCH NOT FOUND</option>");
+                        $("#txtbranch-datatherapy").html("");
+                        $("#txtbranch-datatherapy").append("<option value=\"\" selected>BRANCH NOT FOUND</option>");
+                        $("#txtbranch-mpc").html("");
+                        $("#txtbranch-mpc").append("<option value=\"\" selected>BRANCH NOT FOUND</option>");
+                    }
+                },
+            });
+</script>
 @cannot('all-country-data-undangan')
 <script type="text/javascript">
     $("#txtcountry-dataundangan > optgroup > option").each(function() {
@@ -2720,24 +2768,57 @@
 
         $(".btn-editDataUndangan").click(function(e) {
             
+            var URLNya = $("#actionFindDataOutsite").attr('action');
+            $.ajax({
+                headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    },
+                type: 'post',
+                url: URLNya,
+                data: {
+                    'phone': PhoneNya
+                },
+                success: function(data){
+                    $("#modal-FindDataOutsite").modal("show");
+                    $("#modal-FindDataOutsite").find("span.txt-Kode").html(data['success']['code']);
+                    $("#modal-FindDataOutsite").find("span.txt-Name").html(data['success']['name']);
+                    if(data['success']['location'] != null && data['success']['location'] != "")
+                    {
+                        $("#modal-FindDataOutsite").find("span.txt-Location").html(data['success']['location']['name']);
+                    }
+                    $("#modal-FindDataOutsite").find("span.txt-Phone").html(data['success']['phone']);
+                    $("#modal-FindDataOutsite").find("span.txt-TypeCust").html(data['success']['type_cust']['name']);
+                    $("#modal-FindDataOutsite").find("h4#txt-FindDataOutsite").html("DATA IS FOUND");
+                
+                    $("#modal-FindDataOutsite").modal("show");
+                    $("#modal-FindDataOutsite").find("span.txt-Kode").html("-");
+                    $("#modal-FindDataOutsite").find("span.txt-Name").html("-");
+                    $("#modal-FindDataOutsite").find("span.txt-Location").html("-");
+                    $("#modal-FindDataOutsite").find("span.txt-Phone").html("-");
+                    $("#modal-FindDataOutsite").find("span.txt-TypeCust").html("-");
 
-            $("#modal-EditDataUndangan").modal("show");
+                    $("#modal-EditDataUndangan").modal("show");
+                    
+                },
+            });
+            
         });
 
-        $("#actionAddDataUndangan").on("submit", function (e) {
-            e.preventDefault();
-            frmAddUndangan = _("actionAddDataUndangan");
-            frmAddUndangan = new FormData(frmAddUndangan);
-            var URLNya = $("#actionAddDataUndangan").attr('action');
+        // $("#actionAddDataUndangan").on("submit", function (e) {
+        //     e.preventDefault();
+        //     console.log('zzzzz');
+        //     frmAddUndangan = _("actionAddDataUndangan");
+        //     frmAddUndangan = new FormData(frmAddUndangan);
+        //     var URLNya = $("#actionAddDataUndangan").attr('action');
 
-            var ajax = new XMLHttpRequest();
-            ajax.upload.addEventListener("progress", progressHandlerUndangan, false);
-            ajax.addEventListener("load", completeHandlerUndangan, false);
-            ajax.addEventListener("error", errorHandlerUndangan, false);
-            ajax.open("POST", URLNya);
-            ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
-            ajax.send(frmAddUndangan);
-        });
+        //     var ajax = new XMLHttpRequest();
+        //     ajax.upload.addEventListener("progress", progressHandlerUndangan, false);
+        //     ajax.addEventListener("load", completeHandlerUndangan, false);
+        //     ajax.addEventListener("error", errorHandlerUndangan, false);
+        //     ajax.open("POST", URLNya);
+        //     ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
+        //     ajax.send(frmAddUndangan);
+        // });
         function progressHandlerUndangan(event){
             document.getElementById("btn-actionAddDataUndangan").innerHTML = "UPLOADING...";
         }
@@ -2905,20 +2986,20 @@
             $("#modal-EditDataOutsite").modal("show");
         });
 
-        $("#actionAddDataOutsite").on("submit", function (e) {
-            e.preventDefault();
-            frmAddOutsite = _("actionAddDataOutsite");
-            frmAddOutsite = new FormData(frmAddOutsite);
-            var URLNya = $("#actionAddDataOutsite").attr('action');
+        // $("#actionAddDataOutsite").on("submit", function (e) {
+        //     e.preventDefault();
+        //     frmAddOutsite = _("actionAddDataOutsite");
+        //     frmAddOutsite = new FormData(frmAddOutsite);
+        //     var URLNya = $("#actionAddDataOutsite").attr('action');
 
-            var ajax = new XMLHttpRequest();
-            ajax.upload.addEventListener("progress", progressHandlerOutsite, false);
-            ajax.addEventListener("load", completeHandlerOutsite, false);
-            ajax.addEventListener("error", errorHandlerOutsite, false);
-            ajax.open("POST", URLNya);
-            ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
-            ajax.send(frmAddOutsite);
-        });
+        //     var ajax = new XMLHttpRequest();
+        //     ajax.upload.addEventListener("progress", progressHandlerOutsite, false);
+        //     ajax.addEventListener("load", completeHandlerOutsite, false);
+        //     ajax.addEventListener("error", errorHandlerOutsite, false);
+        //     ajax.open("POST", URLNya);
+        //     ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
+        //     ajax.send(frmAddOutsite);
+        // });
 
         $("#actionEditDataOutsite").on("submit", function (e) {
             e.preventDefault();
@@ -3084,20 +3165,20 @@
             $("#modal-EditDataTherapy").modal("show");
         });
 
-        $("#actionAddDataTherapy").on("submit", function (e) {
-            e.preventDefault();
-            frmAddTherapy = _("actionAddDataTherapy");
-            frmAddTherapy = new FormData(frmAddTherapy);
-            var URLNya = $("#actionAddDataTherapy").attr('action');
+        // $("#actionAddDataTherapy").on("submit", function (e) {
+        //     e.preventDefault();
+        //     frmAddTherapy = _("actionAddDataTherapy");
+        //     frmAddTherapy = new FormData(frmAddTherapy);
+        //     var URLNya = $("#actionAddDataTherapy").attr('action');
 
-            var ajax = new XMLHttpRequest();
-            ajax.upload.addEventListener("progress", progressHandlerTherapy, false);
-            ajax.addEventListener("load", completeHandlerTherapy, false);
-            ajax.addEventListener("error", errorHandlerTherapy, false);
-            ajax.open("POST", URLNya);
-            ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
-            ajax.send(frmAddTherapy);
-        });
+        //     var ajax = new XMLHttpRequest();
+        //     ajax.upload.addEventListener("progress", progressHandlerTherapy, false);
+        //     ajax.addEventListener("load", completeHandlerTherapy, false);
+        //     ajax.addEventListener("error", errorHandlerTherapy, false);
+        //     ajax.open("POST", URLNya);
+        //     ajax.setRequestHeader("X-CSRF-TOKEN",$('meta[name="csrf-token"]').attr('content'));
+        //     ajax.send(frmAddTherapy);
+        // });
 
         $("#actionEditDataTherapy").on("submit", function (e) {
             e.preventDefault();
