@@ -81,10 +81,10 @@ class CsoController extends Controller
                         ->where('csos.active', true)
                         ->orWhere('csos.phone', 'like', "%{$this->Encr($request->keyword)}%")
                         ->where('csos.active', true)
-                        ->orWhere('csos.province', 'like', "%{$request->keyword}%")
-                        ->where('csos.active', true)
-                        ->orWhere('csos.district', 'like', "%{$request->keyword}%")
-                        ->where('csos.active', true)
+                        // ->orWhere('csos.province', 'like', "%{$request->keyword}%")
+                        // ->where('csos.active', true)
+                        // ->orWhere('csos.district', 'like', "%{$request->keyword}%")
+                        // ->where('csos.active', true)
                         ->orWhere('csos.registration_date', 'like', "%{$request->keyword}%")
                         ->where('csos.active', true)
                         ->orWhere('branches.name', 'like', "%{$request->keyword}%")
@@ -227,8 +227,6 @@ class CsoController extends Controller
             'no_rekening' => [
                 Rule::unique('csos')->where('active', 1),
             ],
-            'province' => 'required',
-            'district' => 'required',
             'branch' => 'required',
             'country' => 'required',
         ]);
@@ -247,7 +245,7 @@ class CsoController extends Controller
             $count = Cso::all()->count();
             $count++;
 
-            $data = $request->only('code', 'registration_date', 'unregistration_date', 'name', 'address', 'phone', 'province', 'district');
+            $data = $request->only('code', 'registration_date', 'unregistration_date', 'name', 'address', 'phone');
             $data['name'] = strtoupper($data['name']);
             $data['address'] = strtoupper($data['address']);
             $branch = Branch::find($request->get('branch'));
@@ -304,8 +302,6 @@ class CsoController extends Controller
             'no_rekening' => [
                 Rule::unique('csos')->whereNot('id', $request->get('id'))->where('active', 1),
             ],
-            'province' => 'required',
-            'district' => 'required',
             'branch' => 'required',
             'country' => 'required',
         ]);

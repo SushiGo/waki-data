@@ -58,13 +58,13 @@ class DataController extends Controller
 		{
 			$dataTherapies = $this->IndexTherapy($request, $user);
 		}
-
         $branches = Branch::where([['country', $user->branch['country']],['active', true]])->orderBy('code')->get();
         $csos = Cso::where('active', true)->orderBy('name')->get();
         $type_custs = TypeCust::where('active', true)->get();
         $banks = Bank::where('active', true)->get();
         $locations = Location::where('active', true)->get();
 
+        
         return view('data', compact('dataMpcs', 'dataOutsites', 'dataTherapies', 'dataUndangans', 'csos', 'branches', 'type_custs', 'banks', 'locations'));
 	}
 
@@ -422,10 +422,10 @@ class DataController extends Controller
                         ->where('data_outsites.active', true)
                         ->orWhere('data_outsites.phone', 'like', "%{$this->Encr($request->keywordDataOutsite)}%")
                         ->where('data_outsites.active', true)
-                        ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
-                        ->where('data_outsites.active', true)
-                        ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
-                        ->where('data_outsites.active', true)
+                        // ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
+                        // ->where('data_outsites.active', true)
+                        // ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
+                        // ->where('data_outsites.active', true)
                         ->orWhere('data_outsites.registration_date', 'like', "%{$request->keywordDataOutsite}%")
                         ->where('data_outsites.active', true)
                         ->orWhere('branches.name', 'like', "%{$request->keywordDataOutsite}%")
@@ -440,7 +440,7 @@ class DataController extends Controller
                         ->where('data_outsites.active', true);
                 })->where('data_outsites.active', true)
                 ->join('branches', 'data_outsites.branch_id', '=', 'branches.id')
-                ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
+                // ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
                 ->leftjoin('locations', 'data_outsites.location_id', '=', 'locations.id')
                 ->join('type_custs', 'data_outsites.type_cust_id', '=', 'type_custs.id')
                 ->orderBy('data_outsites.registration_date', 'desc')
@@ -468,16 +468,16 @@ class DataController extends Controller
                             ['data_outsites.active', true],
                             ['branches.country', $user->branch['country']]
                         ])
-                        ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
-                        ->where([
-                            ['data_outsites.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])
-                        ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
-                        ->where([
-                            ['data_outsites.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])
+                        // ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
+                        // ->where([
+                        //     ['data_outsites.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])
+                        // ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
+                        // ->where([
+                        //     ['data_outsites.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])
                         ->orWhere('data_outsites.registration_date', 'like', "%{$request->keywordDataOutsite}%")
                         ->where([
                             ['data_outsites.active', true],
@@ -489,11 +489,11 @@ class DataController extends Controller
                             ['data_outsites.active', true],
                             ['branches.country', $user->branch['country']]
                         ])
-                        ->orWhere('csos.name', 'like', "%{$request->keywordDataOutsite}%")
-                        ->where([
-                            ['data_outsites.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])
+                        // ->orWhere('csos.name', 'like', "%{$request->keywordDataOutsite}%")
+                        // ->where([
+                        //     ['data_outsites.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])
                         ->orWhere('locations.name', 'like', "%{$request->keywordDataOutsite}%")
                         ->where([
                             ['data_outsites.active', true],
@@ -508,7 +508,7 @@ class DataController extends Controller
                 ->where([['data_outsites.active', true],
 	                    ['branches.country', $user->branch['country']]])
                 ->join('branches', 'data_outsites.branch_id', '=', 'branches.id')
-                ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
+                // ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
                 ->leftjoin('locations', 'data_outsites.location_id', '=', 'locations.id')
                 ->join('type_custs', 'data_outsites.type_cust_id', '=', 'type_custs.id')
                 ->orderBy('data_outsites.registration_date', 'desc')
@@ -537,16 +537,16 @@ class DataController extends Controller
 		                ['data_outsites.active', true],
 		                ['data_outsites.branch_id', $user->branch_id]
 		            ])
-                    ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
-                    ->where([
-		                ['data_outsites.active', true],
-		                ['data_outsites.branch_id', $user->branch_id]
-		            ])
-                    ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
-                    ->where([
-		                ['data_outsites.active', true],
-		                ['data_outsites.branch_id', $user->branch_id]
-		            ])
+              //       ->orWhere('data_outsites.province', 'like', "%{$request->keywordDataOutsite}%")
+              //       ->where([
+		            //     ['data_outsites.active', true],
+		            //     ['data_outsites.branch_id', $user->branch_id]
+		            // ])
+              //       ->orWhere('data_outsites.district', 'like', "%{$request->keywordDataOutsite}%")
+              //       ->where([
+		            //     ['data_outsites.active', true],
+		            //     ['data_outsites.branch_id', $user->branch_id]
+		            // ])
                     ->orWhere('data_outsites.registration_date', 'like', "%{$request->keywordDataOutsite}%")
                     ->where([
 		                ['data_outsites.active', true],
@@ -558,11 +558,11 @@ class DataController extends Controller
                         ['data_outsites.active', true],
                         ['branches.country', $user->branch_id]
                     ])
-                    ->orWhere('csos.name', 'like', "%{$request->keywordDataOutsite}%")
-                    ->where([
-                        ['data_outsites.active', true],
-                        ['branches.country', $user->branch_id]
-                    ])
+                    // ->orWhere('csos.name', 'like', "%{$request->keywordDataOutsite}%")
+                    // ->where([
+                    //     ['data_outsites.active', true],
+                    //     ['branches.country', $user->branch_id]
+                    // ])
                     ->orWhere('locations.name', 'like', "%{$request->keywordDataOutsite}%")
                     ->where([
                         ['data_outsites.active', true],
@@ -578,7 +578,7 @@ class DataController extends Controller
                 ['data_outsites.active', true],
                 ['data_outsites.branch_id', $user->branch_id]
             ])
-            ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
+            // ->join('csos', 'data_outsites.cso_id', '=', 'csos.id')
             ->join('branches', 'data_outsites.branch_id', '=', 'branches.id')
             ->leftjoin('locations', 'data_outsites.location_id', '=', 'locations.id')
             ->join('type_custs', 'data_outsites.type_cust_id', '=', 'type_custs.id')
@@ -606,10 +606,10 @@ class DataController extends Controller
                         ->where('data_therapies.active', true)
                         ->orWhere('data_therapies.phone', 'like', "%{$this->Encr($request->keywordDataTherapy)}%")
                         ->where('data_therapies.active', true)
-                        ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where('data_therapies.active', true)
-                        ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where('data_therapies.active', true)
+                        // ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where('data_therapies.active', true)
+                        // ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where('data_therapies.active', true)
                         ->orWhere('data_therapies.registration_date', 'like', "%{$request->keywordDataTherapy}%")
                         ->where('data_therapies.active', true)
                         ->orWhere('data_therapies.address', 'like', "%{$request->keywordDataTherapy}%")
@@ -619,13 +619,13 @@ class DataController extends Controller
                         ->where('data_therapies.active', true)
                         ->orWhere('branches.country', 'like', "%{$request->keywordDataTherapy}%")
                         ->where('data_therapies.active', true)
-                        ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where('data_therapies.active', true)
+                        // ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where('data_therapies.active', true)
                         ->orWhere('type_custs.name', 'like', "%{$request->keywordDataTherapy}%")
                         ->where('data_therapies.active', true);
                 })->where('data_therapies.active', true)
                 ->join('branches', 'data_therapies.branch_id', '=', 'branches.id')
-                ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
+                // ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
                 ->join('type_custs', 'data_therapies.type_cust_id', '=', 'type_custs.id')
                 ->orderBy('data_therapies.registration_date', 'desc')
                 ->select('data_therapies.*')
@@ -651,16 +651,16 @@ class DataController extends Controller
                             ['data_therapies.active', true],
                             ['branches.country', $user->branch['country']]
                         ])
-                        ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where([
-                            ['data_therapies.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])
-                        ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where([
-                            ['data_therapies.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])
+                        // ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where([
+                        //     ['data_therapies.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])
+                        // ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where([
+                        //     ['data_therapies.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])
                         ->orWhere('data_therapies.registration_date', 'like', "%{$request->keywordDataTherapy}%")
                         ->where([
                             ['data_therapies.active', true],
@@ -677,11 +677,11 @@ class DataController extends Controller
                             ['data_therapies.active', true],
                             ['branches.country', $user->branch['country']]
                         ])
-                        ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
-                        ->where([
-                            ['data_therapies.active', true],
-                            ['branches.country', $user->branch['country']]
-                        ])                      
+                        // ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
+                        // ->where([
+                        //     ['data_therapies.active', true],
+                        //     ['branches.country', $user->branch['country']]
+                        // ])                      
                         ->orWhere('type_custs.name', 'like', "%{$request->keywordDataTherapy}%")
 						->where([
                             ['data_therapies.active', true],
@@ -691,7 +691,7 @@ class DataController extends Controller
                 ->where([['data_therapies.active', true],
 	                    ['branches.country', $user->branch['country']]])
                 ->join('branches', 'data_therapies.branch_id', '=', 'branches.id')
-                ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
+                // ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
                 ->join('type_custs', 'data_therapies.type_cust_id', '=', 'type_custs.id')
                 ->orderBy('data_therapies.registration_date', 'desc')
                 ->select('data_therapies.*')
@@ -723,16 +723,16 @@ class DataController extends Controller
 		                ['data_therapies.active', true],
 		                ['data_therapies.branch_id', $user->branch_id]
 		            ])
-                    ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataOutsite}%")
-                    ->where([
-		                ['data_therapies.active', true],
-		                ['data_therapies.branch_id', $user->branch_id]
-		            ])
-                    ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataOutsite}%")
-                    ->where([
-		                ['data_therapies.active', true],
-		                ['data_therapies.branch_id', $user->branch_id]
-		            ])
+              //       ->orWhere('data_therapies.province', 'like', "%{$request->keywordDataOutsite}%")
+              //       ->where([
+		            //     ['data_therapies.active', true],
+		            //     ['data_therapies.branch_id', $user->branch_id]
+		            // ])
+              //       ->orWhere('data_therapies.district', 'like', "%{$request->keywordDataOutsite}%")
+              //       ->where([
+		            //     ['data_therapies.active', true],
+		            //     ['data_therapies.branch_id', $user->branch_id]
+		            // ])
                     ->orWhere('data_therapies.registration_date', 'like', "%{$request->keywordDataOutsite}%")
                     ->where([
 		                ['data_therapies.active', true],
@@ -744,11 +744,11 @@ class DataController extends Controller
                         ['data_therapies.active', true],
                         ['branches.country', $user->branch_id]
                     ])
-                    ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
-                    ->where([
-                        ['data_therapies.active', true],
-                        ['branches.country', $user->branch_id]
-                    ])                      
+                    // ->orWhere('csos.name', 'like', "%{$request->keywordDataTherapy}%")
+                    // ->where([
+                    //     ['data_therapies.active', true],
+                    //     ['branches.country', $user->branch_id]
+                    // ])                      
                     ->orWhere('type_custs.name', 'like', "%{$request->keywordDataTherapy}%")
                     ->where([
                         ['data_therapies.active', true],
@@ -760,7 +760,7 @@ class DataController extends Controller
                 ['data_therapies.branch_id', $user->branch_id]
             ])
             ->join('branches', 'data_therapies.branch_id', '=', 'branches.id')
-            ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
+            // ->join('csos', 'data_therapies.cso_id', '=', 'csos.id')
             ->join('type_custs', 'data_therapies.type_cust_id', '=', 'type_custs.id')
             ->orderBy('data_therapies.registration_date', 'desc')
             ->select('data_therapies.*')
@@ -768,7 +768,7 @@ class DataController extends Controller
 
             $data_therapies->appends($request->only('keywordDataOutsite'));
         }
-
+        // return response()->json(['success'=> $data_therapies]);
         return $data_therapies;
 	}
 
@@ -843,12 +843,9 @@ class DataController extends Controller
                 'required',
                 Rule::unique('data_undangans')->where('active', 1),
             ],
-            'province' => 'required',
-            'district' => 'required',
             'branch' => 'required',
             'country' => 'required',
             'birth_date' => 'required',
-            'cso' => 'required',
             'type_cust' => 'required',
         ]);
 
@@ -862,12 +859,9 @@ class DataController extends Controller
                     Rule::unique('data_undangans')->where('active', 1),
                 ],
                 'bank_name' => 'required',
-                'province' => 'required',
-                'district' => 'required',
                 'branch' => 'required',
                 'country' => 'required',
                 'birth_date' => 'required',
-                'cso' => 'required',
                 'type_cust' => 'required',
             ]);
         }
@@ -927,7 +921,8 @@ class DataController extends Controller
 
             HistoryUndangan::create($data);
 
-            return response()->json(['success'=>'Berhasil !!']);
+            // return response()->json(['success'=>'Berhasil !!']);
+            return redirect()->route('data'); 
         }
 	}
 
@@ -948,11 +943,8 @@ class DataController extends Controller
                 'required',
                 Rule::unique('data_outsites')->where('active', 1),
             ],
-            'province' => 'required',
-            'district' => 'required',
             'branch' => 'required',
             'country' => 'required',
-            'cso' => 'required',
             'type_cust' => 'required',
         ]);
 
@@ -966,7 +958,6 @@ class DataController extends Controller
                 ],
                 'branch' => 'required',
                 'country' => 'required',
-                'cso' => 'required',
                 'type_cust' => 'required',
             ]);
         }
@@ -980,11 +971,8 @@ class DataController extends Controller
                     'required',
                     Rule::unique('data_outsites')->where('active', 1),
                 ],
-                'province' => 'required',
-                'district' => 'required',
                 'branch' => 'required',
                 'country' => 'required',
-                'cso' => 'required',
                 'type_cust' => 'required',
             ]);
         }
@@ -1007,14 +995,14 @@ class DataController extends Controller
             $data = $request->only('code', 'registration_date', 'name', 'location_name', 'phone');
             $data['name'] = strtoupper($data['name']);
 
-            if($request->get('province') != null && $request->get('province') != "")
-            {
-                $data['province'] = $request->get('province');
-            }
-            if($request->get('district') != null && $request->get('district') != "")
-            {
-                $data['district'] = $request->get('district');
-            }
+            // if($request->get('province') != null && $request->get('province') != "")
+            // {
+            //     $data['province'] = $request->get('province');
+            // }
+            // if($request->get('district') != null && $request->get('district') != "")
+            // {
+            //     $data['district'] = $request->get('district');
+            // }
 
             //Khusus untuk Location Input
             if($request->location_name != null || $request->location_name != ""){
@@ -1045,13 +1033,14 @@ class DataController extends Controller
 
             //ngemasukin data ke array $data
             $data['branch_id'] = $request->get('branch');
-            $data['cso_id'] = $request->get('cso');
+            // $data['cso_id'] = $request->get('cso');
             $data['type_cust_id'] = $request->get('type_cust');
 
             //masukin data ke data_outsite
             DataOutsite::create($data);
 
-            return response()->json(['success'=>'Berhasil !!']);
+            // return response()->json(['success'=>'Berhasil !!']);
+            return redirect()->route('data'); 
         }
     }
 
@@ -1073,11 +1062,8 @@ class DataController extends Controller
                 'required',
                 Rule::unique('data_therapies')->where('active', 1),
             ],
-            'province' => 'required',
-            'district' => 'required',
             'branch' => 'required',
             'country' => 'required',
-            'cso' => 'required',
             'type_cust' => 'required',
         ]);
 
@@ -1096,7 +1082,7 @@ class DataController extends Controller
             $count = DataTherapy::all()->count();
             $count++;
 
-            $data = $request->only('code', 'registration_date', 'name', 'address', 'phone', 'province', 'district');
+            $data = $request->only('code', 'registration_date', 'name', 'address', 'phone');
             $data['name'] = strtoupper($data['name']);
 
             //pembentukan kode data therapy
@@ -1111,13 +1097,13 @@ class DataController extends Controller
 
             //ngemasukin data ke array $data
             $data['branch_id'] = $request->get('branch');
-            $data['cso_id'] = $request->get('cso');
             $data['type_cust_id'] = $request->get('type_cust');
 
             //masukin data ke data_therapy
             DataTherapy::create($data);
 
-            return response()->json(['success'=>'Berhasil !!']);
+            // return response()->json(['success'=>'Berhasil !!']);
+            return redirect()->route('data'); 
         }
     }
 

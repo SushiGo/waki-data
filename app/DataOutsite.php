@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class DataOutsite extends Model
 {
     protected $fillable = [
-        'code', 'registration_date', 'name', 'phone', 'province', 'district', 'location_id', 'branch_id', 'cso_id', 'type_cust_id', 'active',
+        'code', 'registration_date', 'name', 'phone', 'location_id', 'branch_id', 'type_cust_id', 'active',
     ];
 
     public function branch()

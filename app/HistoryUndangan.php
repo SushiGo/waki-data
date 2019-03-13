@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class HistoryUndangan extends Model
 {
     protected $fillable = [
-        'date', 'province', 'district', 'bank_id', 'branch_id', 'cso_id', 'type_cust_id', 'data_undangan_id', 'active', 
+        'date', 'bank_id', 'branch_id', 'type_cust_id', 'data_undangan_id', 'active', 
     ];
 
     public function branch()
